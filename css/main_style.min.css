@@ -771,8 +771,33 @@ a {
   color: #2c3e50;
   transition: color .3s;
 }
+
+.post-list .title a {
+    position: relative;
+}
+.post-list .title a:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    right: 50%;
+    background: rgba(189, 55, 41,1.0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: right,left;
+    transition-property: right,left;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.post-list .title a:hover:before {
+  right: 0;
+  left: 0;
+}
+
 .post-list > li h4.title a:hover {
-  color: #2980b9;
+  color: rgb(0, 105, 173);
 }
 .post-list > li .photo {
   max-width: 100%;
