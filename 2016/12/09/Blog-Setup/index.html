@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>Blog Setup - Gin</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.png"></head><body><div class="post-header"><img class="background" src="/default_images/post_background.jpg"><div class="post-title"><h1 class="title">Blog Setup</h1><ul class="meta"><li><i class="icon icon-author"></i>Gin</li><li><i class="icon icon-clock"></i>5 Minutes</li><li><i class="icon icon-calendar"></i>December 9, 2016</li></ul></div></div><div class="article-content"><h1 id="Hexo-Github-Pages搭建个人博客"><a href="#Hexo-Github-Pages搭建个人博客" class="headerlink" title="Hexo+Github Pages搭建个人博客"></a>Hexo+Github Pages搭建个人博客</h1><hr>
+<h3 id="1-系统环境的配置"><a href="#1-系统环境的配置" class="headerlink" title="1.系统环境的配置"></a>1.系统环境的配置</h3><p>安装Node.js —— <a href="https://nodejs.org/en/download/" target="_blank" rel="external">点击下载</a></p>
+<p>安装Git —— <a href="http://git-scm.com/download/" target="_blank" rel="external">点击下载</a></p>
+<hr>
+<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cd /c/hexo</div><div class="line">$ npm install hexo-cli -g</div><div class="line">$ hexo init blog</div><div class="line">$ cd blog</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<hr>
+<p>安装好后cd到blog输入：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g <span class="comment">#生成静态文件</span></div><div class="line">$ hexo s <span class="comment">#启动本地web服务</span></div></pre></td></tr></table></figure></p>
+<p>然后到浏览器进入 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 预览博客</p>
+<hr>
+<h3 id="3-主题设置"><a href="#3-主题设置" class="headerlink" title="3.主题设置"></a>3.主题设置</h3><p><strong>安装主题</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo clean <span class="comment">#清除主题缓存</span></div><div class="line">$ git clone https://git@github.com:yumemor/hexo-theme-varaint.git themes/varaint <span class="comment">#以主题varaint为例</span></div></pre></td></tr></table></figure>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="external">主题下载</a></p>
+<hr>
+<p><strong>更换主题</strong></p>
+<p>首先修改Hexo目录下的_config.yml配置文件中的theme属性，将其设置为varaint。</p>
+<p>然后执行以下命令：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd themes/varaint</div><div class="line">$ git pull</div></pre></td></tr></table></figure></p>
+<p>现在可以生成静态文件到本地web服务预览了。</p>
+<hr>
+<h3 id="4-Github-Pages设置"><a href="#4-Github-Pages设置" class="headerlink" title="4.Github Pages设置"></a>4.Github Pages设置</h3><p>1.首先，你得要有一个Github账号 —— <a href="https://github.com/" target="_blank" rel="external">账号注册</a></p>
+<p>2.创建一个名为<code>xxx.github.io</code>的项目来放置你的博客(xxx为你的github账户名称)</p>
+<p>3.设置SSH<br>输入以下命令：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">＃ssh-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">"xxx@xxx.com"</span> <span class="comment">#注册GitHub所用的邮箱</span></div></pre></td></tr></table></figure></p>
+<p>然后用Sublime打开并复制user_id/.ssh目录下的id_rsa.pub的内容，登陆github，粘贴到项目的SSH设置上。</p>
+<p>4.修改Hexo目录下的_config.yml配置文件中的deploy属性，将其设置为:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: git@github.com:xxx/xxx.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure></p>
+<p>5.安装扩展并完成配置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git  --save</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="5-绑定独立域名"><a href="#5-绑定独立域名" class="headerlink" title="5.绑定独立域名"></a>5.绑定独立域名</h3><p>—— 在此以域名ginbin.cc为例说明。</p>
+<hr>
+<p>1.域名设置</p>
+<p>购买域名后配置DNS解析</p>
+<blockquote>
+<p>记录类型：A<br>记录值：填入GitHub的ip地址</p>
+</blockquote>
+<p>使用CMD查看GitHub的ip地址：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping xxx.github.io</div></pre></td></tr></table></figure></p>
+<hr>
+<p>2.GitHub设置</p>
+<p>在项目根目录下新建名为CNAME的文件，编辑文件，输入ginbin.cc( <code>不要输入前缀</code> )，保存。</p>
+<p>完成所有配置后即可使用ginbin.cc访问你的博客了！！</p>
+<hr>
+<blockquote>
+<p><strong>Tip:</strong> 由于域名解析需要一定的时间，可能在你完成配置后无法立即访问，你可以在CMD输入ping ginbin.cc 进行查看，若出现Github的ip，则配置成功。</p>
+</blockquote>
+</div><div class="article-meta"></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="http://github.com/Gin6" title="GitHub" target="_blank"><i class="icon icon-github"></i></a></li><li><a href="http://weibo.com/3108758435/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" title="Weibo" target="_blank"><i class="icon icon-weibo"></i></a></li><li><a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1223137796@qq.com" title="Email" target="_blank"><i class="icon icon-email"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2016 Gin<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small></p></div></div></body></html>
