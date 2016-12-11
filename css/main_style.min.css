@@ -563,7 +563,7 @@ a {
   text-align: center;
   padding: 0 20px 30px 20px;
 }
-.page-header .author .shake-slow {
+.page-header .author .shake {
   display: inline-block;
   width: 130px;
   height: 130px;
@@ -574,14 +574,14 @@ a {
   position: relative;
   top: -68px;
 }
-.page-header .author .shake-slow img {
+.page-header .author .shake img {
   width: 100%;
   height: 100%;
   display: block;
   border-radius: 50%;
 }
 
-.page-header .author .shake-slow a {
+.page-header .author .shake a {
   text-decoration: none;
   position: relative;
   bottom: 100%;
