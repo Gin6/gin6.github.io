@@ -933,6 +933,21 @@ a {
   font-size: .9rem;
   color: #7f8c8d;
 }
+
+
+.article-meta:before {
+  content: "Go"
+  height: 40px;
+  width: 40px;
+  background: red;
+  border-radius: 50px;
+  position: fixed;
+  top: 90%;
+  right: 3%;
+  display: none;
+}   
+
+
 .article-meta .tags, .article-meta .categories {
   margin-bottom: 5px;
 }
@@ -1109,17 +1124,6 @@ ul.navication li.home a:hover {
 }
 
 
-.article-meta:before {
-  content: "Go"
-  height: 40px;
-  width: 40px;
-  background: red;
-  border-radius: 50px;
-  position: fixed;
-  top: 90%;
-  right: 3%;
-  display: none;
-}    
 .goTop span {
   color: #fff;
   position: absolute;
