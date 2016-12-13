@@ -1,5 +1,5 @@
-function goTop(min_height) {
-        $(".goTop").click(
+function .article-meta:before(min_height) {
+        $(".article-meta:before").click(
             function() {
                 $('html,body').animate({
                     scrollTop: 0
@@ -13,10 +13,10 @@ function goTop(min_height) {
             var s = $(window).scrollTop();
             //当窗口的滚动条的垂直位置大于页面的最小高度时，让返回顶部元素渐现，否则渐隐
             if (s > min_height) {
-                $(".goTop").fadeIn(100);
+                $(".article-meta:before").fadeIn(100);
             } 
             else {
-                $(".goTop").fadeOut(200);
+                $(".article-meta:before").fadeOut(200);
             }
         });
     }
